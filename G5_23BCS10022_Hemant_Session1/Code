@@ -1,0 +1,19 @@
+--G5_23BCS10022_Session1
+CREATE TABLE Employee (
+    employee_id SERIAL PRIMARY KEY,
+    first_name  VARCHAR(50),
+    last_name   VARCHAR(50),
+    department  VARCHAR(50),
+    salary      NUMERIC(10,2),
+    hire_date   DATE
+);
+CREATE VIEW Employee_View AS
+SELECT 
+    employee_id,
+    first_name,
+    last_name,
+    department
+FROM Employee;
+CREATE ROLE Analyst;
+
+GRANT SELECT ON Employee_View TO Analyst;
