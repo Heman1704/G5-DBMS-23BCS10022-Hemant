@@ -1,0 +1,19 @@
+-- Create a new database role named Analyst and grant this role SELECT access on the Employee_View.
+-- G5_23BCS10022_Hemant_Session1
+CREATE TABLE Employee (
+    employee_id SERIAL PRIMARY KEY,
+    first_name  VARCHAR(50),
+    last_name   VARCHAR(50),
+    department  VARCHAR(50),
+    salary      NUMERIC(10,2),
+    hire_date   DATE
+);
+CREATE VIEW Employee_View AS
+SELECT 
+    employee_id,
+    first_name,
+    last_name,
+    department
+FROM Employee;
+CREATE ROLE Analyst;
+GRANT SELECT ON Employee_View TO Analyst;
